@@ -8,81 +8,121 @@
   justify-content: center;
 
       .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
         width: 100%;
         height: 100%;
 
+        .external-circle-container{
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 600; 
+          height: 429px; 
+
+          .external-circle{
+            width: 25px;
+            height: 25px;
+            fill: #FFD4AD;
+            
+            
+
+          }
+         
+
+       
+
               .inner-circle-container{
-              
-                position: absolute;
-                top: 25%;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: auto;
-                
+                top: 50%;
+                left: 55%;
+                transform: translate(-50%, -50%);
+                              
                
                 .inner-circle-img{
-                  width: 30px;
-                  height: 30px;
+                  width: 25px;
+                  height: 25px;
                   cursor: pointer;
                   color: #979797;
                 }
               }
+            }
       }
 
 }
 
+.prof{
+  font-size: 12px;
+}
+
 #prof-name-0{
+  width: 100px;
   position: absolute;
-  left: 50px;
-  top: -20px;
-  white-space: nowrap;
+  left: 13px;
+  top: -15px;
+  
 }
 
 #prof-name-1{
   position: absolute;
-  left: 50px;
-  top: -5px;
+  left: 35px;
+  top: 5px;
   white-space: nowrap;
+}
+
+#prof-name-2{
+  width: 100px;
+  position: absolute;
+  left: 5px;
+  top: 25px;
+}
+
+#prof-name-3{
+  width: 100px;
+  position: absolute;
+  left: -80px;
+  top: 20px;
 }
 
 #prof-name-4{
   width: 100px;
   position: absolute;
-  left: -120px;
+  left: -95px;
   top: 0px;
 }
 
 #prof-name-5{
   width: 100px;
   position: absolute;
-  left: -120px;
-  top: -30px;
+  left: -90px;
+  top: -25px;
 }
 
 #prof-name-6{
+  width: 100px;
   position: absolute;
-  left: -150px;
-  top: -30px;
+  left: -90px;
+  top: -20px;
 }
 
 #prof-name-7{
   position: absolute;
-  left: -100px;
-  top: -70px;
+  left: -90px;
+  top: -45px;
 }
 
 #prof-name-8{
   position: absolute;
-  left: 20px;
-  top: -50px;
+  left: 15px;
+  top: -35px;
 }
 
 #prof-name-9{
   position: absolute;
-  left: 50px;
-  top: -25px;
+  left: 20px;
+  top: -20px;
   white-space: nowrap;
 }
 

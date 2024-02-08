@@ -1,24 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import './App.scss';
 import circleInner from './img/circle.svg';
+import circleExt from './img/circleext.svg';
 
 function App() {
   const numberOfImages = 10;
+  const numberOfExternalImages = 18;
   const radius = 180;
+  const externalRadius = 300; 
   const outerRadius = radius;
   const canvasSize = radius * 2 + 40;
   const canvasRef = useRef(null);
 
+
   const professions = [
-    
-    {
-      id: "circle-img-1",
-      name: "Менеджер проекта",
-      mainSkills: [
-        "Visio", "1C", "Google Analytics", "Яндекс.Метрика", "Python", "SQL", "Tilda",
-      ],
-      otherSkills: ["Figma", "Sketch", "Shopify"],
-    },
+  
     {
       id: "circle-img-0",
       name: "Продуктовый дизайнер",
@@ -31,6 +27,29 @@ function App() {
         "Tilda",
       ],
       otherSkills: ["Shopify", "Protopie", "Cinema 4D"],
+    },
+
+    {
+      id: "circle-img-1",
+      name: "Менеджер проекта",
+      mainSkills: [
+        "Visio", "1C", "Google Analytics", "Яндекс.Метрика", "Python", "SQL", "Tilda",
+      ],
+      otherSkills: ["Figma", "Sketch", "Shopify"],
+    },
+
+    {
+      id: "circle-img-2",
+      name: "Финансовый менеджер",
+      mainSkills: ["1C", "Excel", "Power BI"],
+      otherSkills: ["BPMN"],
+    },
+
+    {
+      id: "circle-img-3",
+      name: "Руководитель финансового департамента компании",
+      mainSkills: ["Sketch", "Figma"],
+      otherSkills: ["Shopify", "HQL"],
     },
 
     {
@@ -114,6 +133,35 @@ function App() {
     }
   }, [numberOfImages, canvasSize, outerRadius]);
 
+
+  
+  
+
+  const externalCircleImages = Array.from({ length: numberOfExternalImages }).map((_, index) => {
+    const angle = (2 * Math.PI) / numberOfExternalImages * index; 
+    const x = externalRadius * Math.cos(angle) + radius + 20;
+    const y = externalRadius * Math.sin(angle) + radius + 20; 
+
+    return (
+      <img
+        key={index}
+        className='external-circle'
+        src={circleExt}
+        alt=""
+        style={{
+          position: 'absolute',
+          left: `${x}px`,
+          top: `${y}px`,
+          
+        }}
+      />
+    );
+  });
+
+  
+
+  
+
   const images = Array.from({ length: numberOfImages }).map((_, index) => {
     const angle = (2 * Math.PI) / numberOfImages * index;
     const x = radius * Math.cos(angle) + radius + 20;
@@ -133,7 +181,6 @@ function App() {
         <img
           id={`circle-img-${index}`}
           src={circleInner}
-          alt={profession ? profession.name : "Не определено"}
           className="inner-circle-img"
         />
         {profession ? <div id={`prof-name-${index}`} className='prof'>{profession.name}</div> : null}
@@ -145,10 +192,18 @@ function App() {
   return (
     <header className="body-head">
       <div className="container">
+
+       
+        <div className='external-circle-container'>
+          
+          {externalCircleImages}
         <div className="inner-circle-container" style={{ position: 'relative', width: `${canvasSize}px`, height: `${canvasSize}px` }}>
-          <canvas ref={canvasRef} width={canvasSize} height={canvasSize} style={{ position: 'absolute', top: 0, left: 0 }}></canvas>
+          <canvas ref={canvasRef} width={canvasSize} height={canvasSize} style={{ position: 'absolute', top: -3, left: 0 }}></canvas>
           {images}
         </div>
+        </div>
+       
+
       </div>
     </header>
   );
